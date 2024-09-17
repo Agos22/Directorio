@@ -5,6 +5,9 @@
  */
 package directorio.vistas;
 
+import directorio.Contacto;
+import java.util.TreeMap;
+
 /**
  *
  * @author 54266
@@ -17,7 +20,7 @@ public class Buscar extends javax.swing.JInternalFrame {
     public Buscar() {
         initComponents();
     }
-
+    TreeMap<Long, Contacto> contactos;
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -85,6 +88,11 @@ public class Buscar extends javax.swing.JInternalFrame {
         jB_nuevo.setText("Nuevo");
 
         jB_guardar.setText("Guardar");
+        jB_guardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jB_guardarActionPerformed(evt);
+            }
+        });
 
         jB_borrar.setText("Borrar");
 
@@ -191,7 +199,31 @@ public class Buscar extends javax.swing.JInternalFrame {
         
     }//GEN-LAST:event_jB_buscarActionPerformed
 
+    private void jB_guardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB_guardarActionPerformed
+        guardarContac();
+        txtApellido.setText("");
+        txtCiudad.setText("");
+        txtDNI.setText("");
+        txtDire.setText("");
+        txtNombre.setText("");
+        txtTel.setText("");
+        
+    }//GEN-LAST:event_jB_guardarActionPerformed
 
+    public void guardarContac(){
+        String apellido= txtApellido.getText();
+        String ciudad= txtCiudad.getText();
+        String DNI=txtDNI.getText();
+        String direccion=txtDire.getText();
+        String nombre= txtNombre.getText();
+        long tel=Integer.parseInt(txtTel.getText());
+        
+        Contacto cont = new Contacto(DNI,nombre,apellido,ciudad,direccion);
+        contactos.put(tel, cont);
+        System.out.println("El contacto "+nombre+" "+apellido+" se guardo correctamente");
+        
+        
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jB_borrar;
     private javax.swing.JButton jB_buscar;
