@@ -2,6 +2,7 @@
 package directorio;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.TreeMap;
@@ -16,8 +17,13 @@ public class GuiaTelefonica {
         this.contactos = new TreeMap <>();
     }
     
-    public void agregarContacto (Long telefono, Contacto contacto){
-        contactos.put(telefono, contacto);
+    public boolean agregarContacto (Long telefono, Contacto contacto){
+        if(contactos.containsKey(telefono) || contacto == null ){
+            return false;
+        }else{
+            contactos.put(telefono, contacto);
+            return true;
+        }
     }
     
     public Contacto buscarContacto (Long telefono){
@@ -33,7 +39,7 @@ public class GuiaTelefonica {
     }
         return telefonos;
 }
-    public ArrayList<Contacto> buscarContacto (String Ciudad){
+    public ArrayList<Contacto> buscarContactoPorCiudad (String Ciudad){
         ArrayList<Contacto> listaContactos = new ArrayList<>();
             for (Contacto contacto : contactos.values()){
                 if (contacto.getCiudad().equalsIgnoreCase(Ciudad)){
@@ -43,7 +49,23 @@ public class GuiaTelefonica {
             return listaContactos;
         }
     
-    public void borrarContactos (Long telefono){
-        contactos.remove(telefono);
+    public boolean borrarContactos (Long telefono){
+        if (contactos.remove(telefono) != null){
+            return true;
+        }else{
+            return false;
+        
+        }
     }
+    public List<Contacto> obtenerTodosLosContactos(){
+    
+        return new ArrayList<>(contactos.values());
+    
     }
+        
+     
+}
+    
+    
+
+   
