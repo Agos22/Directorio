@@ -1,7 +1,7 @@
 
 package directorio;
 
-import directorio.vistas.Direc;
+import Vistas.Direc;
 import javax.swing.SwingUtilities;
 
 

@@ -1,8 +1,14 @@
 
 package directorio;
 
+import java.util.Map;
+
 
 public class Contacto {
+
+    public static Iterable<Map.Entry<Long, Contacto>> entrySet() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
     
     private String DNI;
     private String nombre;
@@ -20,6 +26,10 @@ public class Contacto {
 
     public String getApellido() {
         return apellido;
+    }
+
+    public String getNombre() {
+        return nombre;
     }
 
     public String getCiudad() {
