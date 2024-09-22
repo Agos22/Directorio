@@ -1,4 +1,4 @@
-package directorio.vistas;
+package vistas;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -18,6 +18,8 @@ public class Direc extends javax.swing.JFrame {
     public Direc() {
         initComponents();
         this.setTitle("Tu Directorio");
+        setResizable(false);
+        setLocationRelativeTo(null);
     }
 
     /**
@@ -38,7 +40,6 @@ public class Direc extends javax.swing.JFrame {
 
         jButton1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jButton1.setForeground(new java.awt.Color(0, 51, 255));
-        jButton1.setIcon(new javax.swing.ImageIcon("C:\\Users\\54266\\Downloads\\iconos_netbeans\\iconos netbeans\\icons8-buscar-cliente-50.png")); // NOI18N
         jButton1.setText("Guía Telefónica");
         jButton1.setToolTipText("");
         jButton1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));

@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package directorio.vistas;
+package vistas;
 
 import directorio.Contacto;
 import directorio.GuiaTelefonica;
@@ -20,7 +20,9 @@ public class Buscar extends javax.swing.JInternalFrame {
      */
     private GuiaTelefonica directorio;
     public Buscar() {
+        this.directorio = new GuiaTelefonica();
         initComponents();
+        setResizable(false);
     }
 
     /**
@@ -240,9 +242,7 @@ public class Buscar extends javax.swing.JInternalFrame {
             directorio.agregarContacto(telefonoLong, contacto);
         } catch (NumberFormatException e) {
             JOptionPane.showMessageDialog(this, "Debe completar los campos!");
-        } catch (NullPointerException e) {
-            JOptionPane.showMessageDialog(this, "nullpointer");
-        }
+        } 
     }//GEN-LAST:event_jB_guardarActionPerformed
 
     private void jB_borrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB_borrarActionPerformed

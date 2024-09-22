@@ -1,7 +1,7 @@
 
 package directorio;
 
-import directorio.vistas.Direc;
+import vistas.Direc;
 import javax.swing.SwingUtilities;
 
 
@@ -17,13 +17,6 @@ public class Directorio {
         directorio.agregarContacto(2664234598L, new Contacto("45678456A", "Tito", "Cala", "Villa Mercedes", "Mitre 456"));
         directorio.agregarContacto(2656896754L, new Contacto("37987654A", "Jimy", "Arregui", "Villa de Merlo", "Av del Sol 65"));
         directorio.agregarContacto(2657543412L, new Contacto("13789567", "Charly", "Garcia", "Villa Mercedes", "Perdernera 45"));
-        
-        
-        System.out.println("Buscar contacto por teléfono 2664345678 : " + directorio.buscarContacto(2664345678L));
-        
-        
-        directorio.borrarContactos(2657543412L);
-        System.out.println("Buscar contacto por teléfono 2657543412 después de borrar: " + directorio.buscarContacto(2657543412L));
      
         iniciarInterfaz ();
     }
