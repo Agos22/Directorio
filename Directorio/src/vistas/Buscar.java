@@ -217,13 +217,12 @@ public class Buscar extends javax.swing.JInternalFrame {
        // TODO add your handling code here:
         try {
             if (directorio.buscarContacto(Long.valueOf(txtTel.getText())) == null) {
-                JOptionPane.showMessageDialog(null, "el contacto no existe!");
+                JOptionPane.showMessageDialog(this, "el contacto no existe!");
             } else {
-                JOptionPane.showConfirmDialog(null, directorio.buscarContacto(Long.valueOf(txtTel.getText())));
+                JOptionPane.showConfirmDialog(this, directorio.buscarContacto(Long.valueOf(txtTel.getText())), "Informacion del contacto" , JOptionPane.CLOSED_OPTION);
             }
-            
         } catch (NumberFormatException e) {
-            JOptionPane.showConfirmDialog(this, "Debe escribir un numero en telefono!");
+            JOptionPane.showConfirmDialog(this, "Debe escribir un numero de telefono!");
         }
     }//GEN-LAST:event_jB_buscarActionPerformed
 
@@ -251,7 +250,7 @@ public class Buscar extends javax.swing.JInternalFrame {
             directorio.agregarContacto(telefonoLong, contacto);
             JOptionPane.showMessageDialog(this, "Contacto guardado "+ "correctamente.");
         } catch (NumberFormatException e) {
-            JOptionPane.showMessageDialog(this, "Debe completar los campos!");
+            JOptionPane.showMessageDialog(this, "Debe completar los campos!", "Error", JOptionPane.ERROR_MESSAGE);
         } 
     }//GEN-LAST:event_jB_guardarActionPerformed
 
@@ -264,8 +263,7 @@ public class Buscar extends javax.swing.JInternalFrame {
         } catch (NullPointerException e) {
              JOptionPane.showMessageDialog(this, "El contacto no existe");
         } catch (NumberFormatException e) {
-            JOptionPane.showMessageDialog(this, "Tiene que marcar un numero "
-                    + "de telefono!");
+            JOptionPane.showMessageDialog(this, "Tiene que marcar un numero de telefono!", "Error", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_jB_borrarActionPerformed
 
