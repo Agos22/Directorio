@@ -214,8 +214,17 @@ public class Buscar extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_txtTelActionPerformed
 
     private void jB_buscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB_buscarActionPerformed
-       
-        
+       // TODO add your handling code here:
+        try {
+            if (directorio.buscarContacto(Long.valueOf(txtTel.getText())) == null) {
+                JOptionPane.showMessageDialog(null, "el contacto no existe!");
+            } else {
+                JOptionPane.showConfirmDialog(null, directorio.buscarContacto(Long.valueOf(txtTel.getText())));
+            }
+            
+        } catch (NumberFormatException e) {
+            JOptionPane.showConfirmDialog(this, "Debe escribir un numero en telefono!");
+        }
     }//GEN-LAST:event_jB_buscarActionPerformed
 
     private void jB_nuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB_nuevoActionPerformed
@@ -240,6 +249,7 @@ public class Buscar extends javax.swing.JInternalFrame {
             Contacto contacto = new Contacto(dniString, nombreString, apellidoString, 
                     ciudadString, direccionString);
             directorio.agregarContacto(telefonoLong, contacto);
+            JOptionPane.showMessageDialog(this, "Contacto guardado "+ "correctamente.");
         } catch (NumberFormatException e) {
             JOptionPane.showMessageDialog(this, "Debe completar los campos!");
         } 
@@ -249,7 +259,8 @@ public class Buscar extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
         try {
             Long telefonoLong = Long.valueOf(txtTel.getText());
-            directorio.buscarContacto(telefonoLong);
+            directorio.borrarContactos(telefonoLong);
+            JOptionPane.showMessageDialog(this, "El contacto fue borrado exitosamente.");
         } catch (NullPointerException e) {
              JOptionPane.showMessageDialog(this, "El contacto no existe");
         } catch (NumberFormatException e) {

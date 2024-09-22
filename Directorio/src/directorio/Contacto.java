@@ -28,12 +28,6 @@ public class Contacto {
     
     @Override
     public String toString (){
-        return "Contacto { " +
-                "DNI: " + DNI + " / " +
-                "Nombre: " + nombre + " / " +
-                "Apellido: " + apellido + " / " + 
-                "Ciudad: " + ciudad + " / " +
-                "Dirección: " + direccion + " / " +
-                " } ";
+        return "\nDNI: " + DNI + "\nNombre: " + nombre + "\nApellido: " + apellido + "\nCiudad: " + ciudad + "\nDireccion: " + direccion + "\n"; 
     }
 }

@@ -25,8 +25,7 @@ public class GuiaTelefonica {
     }
     
     public Contacto buscarContacto(Long telefono) {
-        System.out.println("Buscar contacto con el telefono: " + telefono + 
-                "\n");
+        System.out.println("Buscar contacto con el telefono: " + telefono);
         return contactos.get(telefono);
     }
     
@@ -65,12 +64,14 @@ public class GuiaTelefonica {
         if (contactos.isEmpty()) {
             System.out.println("No hay cotactos en el directorio");
         } else {
+            System.out.println("-----------------------------------------------------");
             System.out.println("Contactos en el directorio:");
             for (Map.Entry<Long, Contacto> entry: contactos.entrySet()) {
                 Long telefono = entry.getKey();
                 Contacto contacto = entry.getValue();
                 System.out.println("Contacto:" + contacto + "Numero de telefono: " + telefono + "\n");
             }
+            System.out.println("-----------------------------------------------------");
         }
     }
     
