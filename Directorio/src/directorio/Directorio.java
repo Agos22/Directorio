@@ -20,8 +20,7 @@ public class Directorio {
         
         
         System.out.println("Buscar contacto por teléfono 2664345678 : " + directorio.buscarContacto(2664345678L));
-        System.out.println("Buscar teléfonos por apellido 'Gomez': " + directorio.buscarContacto("Gomez"));
-        System.out.println("Buscar contactos por ciudad 'San Luis': " + directorio.buscarContacto("San Luis"));
+        
         
         directorio.borrarContactos(2657543412L);
         System.out.println("Buscar contacto por teléfono 2657543412 después de borrar: " + directorio.buscarContacto(2657543412L));

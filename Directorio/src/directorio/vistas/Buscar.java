@@ -5,6 +5,10 @@
  */
 package directorio.vistas;
 
+import directorio.Contacto;
+import directorio.GuiaTelefonica;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author 54266
@@ -14,6 +18,7 @@ public class Buscar extends javax.swing.JInternalFrame {
     /**
      * Creates new form Guia
      */
+    private GuiaTelefonica directorio;
     public Buscar() {
         initComponents();
     }
@@ -27,7 +32,7 @@ public class Buscar extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
+        jLabelFormulario = new javax.swing.JLabel();
         txtDNI = new javax.swing.JTextField();
         txtNombre = new javax.swing.JTextField();
         txtApellido = new javax.swing.JTextField();
@@ -35,11 +40,11 @@ public class Buscar extends javax.swing.JInternalFrame {
         txtCiudad = new javax.swing.JTextField();
         jSeparator1 = new javax.swing.JSeparator();
         txtTel = new javax.swing.JTextField();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
+        jLabelDNI = new javax.swing.JLabel();
+        jLabelNombre = new javax.swing.JLabel();
+        jLabelApellido = new javax.swing.JLabel();
+        jLabelDireccion = new javax.swing.JLabel();
+        jLabelCiudad = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jB_buscar = new javax.swing.JButton();
         jB_nuevo = new javax.swing.JButton();
@@ -52,9 +57,9 @@ public class Buscar extends javax.swing.JInternalFrame {
         setMaximizable(true);
         setResizable(true);
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(0, 51, 204));
-        jLabel1.setText("FORMULARIO DE CONTACTO");
+        jLabelFormulario.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabelFormulario.setForeground(new java.awt.Color(0, 51, 204));
+        jLabelFormulario.setText("FORMULARIO DE CONTACTO");
 
         txtTel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -62,15 +67,15 @@ public class Buscar extends javax.swing.JInternalFrame {
             }
         });
 
-        jLabel2.setText("DNI:");
+        jLabelDNI.setText("DNI:");
 
-        jLabel3.setText("Nombre:");
+        jLabelNombre.setText("Nombre:");
 
-        jLabel4.setText("Apellido:");
+        jLabelApellido.setText("Apellido:");
 
-        jLabel5.setText("Direccion:");
+        jLabelDireccion.setText("Direccion:");
 
-        jLabel6.setText("Ciudad:");
+        jLabelCiudad.setText("Ciudad:");
 
         jLabel7.setText("Telefono:");
 
@@ -83,12 +88,32 @@ public class Buscar extends javax.swing.JInternalFrame {
         });
 
         jB_nuevo.setText("Nuevo");
+        jB_nuevo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jB_nuevoActionPerformed(evt);
+            }
+        });
 
         jB_guardar.setText("Guardar");
+        jB_guardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jB_guardarActionPerformed(evt);
+            }
+        });
 
         jB_borrar.setText("Borrar");
+        jB_borrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jB_borrarActionPerformed(evt);
+            }
+        });
 
         jB_salir.setText("Salir");
+        jB_salir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jB_salirActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -102,14 +127,14 @@ public class Buscar extends javax.swing.JInternalFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(11, 11, 11)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel2)
-                                    .addComponent(jLabel3)
-                                    .addComponent(jLabel4)
-                                    .addComponent(jLabel5)
-                                    .addComponent(jLabel6))
+                                    .addComponent(jLabelDNI)
+                                    .addComponent(jLabelNombre)
+                                    .addComponent(jLabelApellido)
+                                    .addComponent(jLabelDireccion)
+                                    .addComponent(jLabelCiudad))
                                 .addGap(23, 23, 23)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel1)
+                                    .addComponent(jLabelFormulario)
                                     .addGroup(layout.createSequentialGroup()
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                             .addComponent(txtCiudad, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 160, Short.MAX_VALUE)
@@ -142,28 +167,28 @@ public class Buscar extends javax.swing.JInternalFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(19, 19, 19)
-                .addComponent(jLabel1)
+                .addComponent(jLabelFormulario)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtDNI, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2)
+                    .addComponent(jLabelDNI)
                     .addComponent(jB_buscar))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3))
+                    .addComponent(jLabelNombre))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtApellido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel4))
+                    .addComponent(jLabelApellido))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtDire, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel5))
+                    .addComponent(jLabelDireccion))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtCiudad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel6))
+                    .addComponent(jLabelCiudad))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -191,6 +216,53 @@ public class Buscar extends javax.swing.JInternalFrame {
         
     }//GEN-LAST:event_jB_buscarActionPerformed
 
+    private void jB_nuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB_nuevoActionPerformed
+        // TODO add your handling code here:
+        txtApellido.setText("");
+        txtCiudad.setText("");
+        txtDNI.setText("");
+        txtDire.setText("");
+        txtNombre.setText("");
+        txtTel.setText("");
+    }//GEN-LAST:event_jB_nuevoActionPerformed
+
+    private void jB_guardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB_guardarActionPerformed
+        // TODO add your handling code here:
+        try {
+            String dniString = txtDNI.getText();
+            String nombreString = txtNombre.getText();
+            String apellidoString = txtApellido.getText();
+            String direccionString = txtDire.getText();
+            String ciudadString = txtCiudad.getText();
+            Long telefonoLong = Long.valueOf(txtTel.getText());
+            Contacto contacto = new Contacto(dniString, nombreString, apellidoString, 
+                    ciudadString, direccionString);
+            directorio.agregarContacto(telefonoLong, contacto);
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(this, "Debe completar los campos!");
+        } catch (NullPointerException e) {
+            JOptionPane.showMessageDialog(this, "nullpointer");
+        }
+    }//GEN-LAST:event_jB_guardarActionPerformed
+
+    private void jB_borrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB_borrarActionPerformed
+        // TODO add your handling code here:
+        try {
+            Long telefonoLong = Long.valueOf(txtTel.getText());
+            directorio.buscarContacto(telefonoLong);
+        } catch (NullPointerException e) {
+             JOptionPane.showMessageDialog(this, "El contacto no existe");
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(this, "Tiene que marcar un numero "
+                    + "de telefono!");
+        }
+    }//GEN-LAST:event_jB_borrarActionPerformed
+
+    private void jB_salirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB_salirActionPerformed
+        // TODO add your handling code here:
+        dispose();
+    }//GEN-LAST:event_jB_salirActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jB_borrar;
@@ -198,13 +270,13 @@ public class Buscar extends javax.swing.JInternalFrame {
     private javax.swing.JButton jB_guardar;
     private javax.swing.JButton jB_nuevo;
     private javax.swing.JButton jB_salir;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabelApellido;
+    private javax.swing.JLabel jLabelCiudad;
+    private javax.swing.JLabel jLabelDNI;
+    private javax.swing.JLabel jLabelDireccion;
+    private javax.swing.JLabel jLabelFormulario;
+    private javax.swing.JLabel jLabelNombre;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTextField txtApellido;
     private javax.swing.JTextField txtCiudad;
